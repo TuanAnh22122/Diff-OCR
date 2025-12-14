@@ -1,0 +1,22 @@
+﻿Filename,Char_Acc,Word_Acc,CER,GT_Preview,Pred_Preview
+1,0.9666666666666667,0.8791208791208791,0.03333333333333333,việt nam thân yêu việt nam đất,việt nam thân yêu việt nam đất
+10,0.8898305084745762,0.6785714285714286,0.11016949152542373,"ta về mình có nhớ ta ta về, ta","ta vẽ mình có nhớ ta ta vẽ, ta"
+11,0.9032258064516129,0.7142857142857143,0.0967741935483871,trong đầm gì đẹp bằng sen lá x,trong đám giọt ép bàng sen lá 
+12,0.9487179487179487,0.7857142857142857,0.05128205128205128,con cò lặn lội bờ sông lam lũ ,con cô lặn lội bờ sông lam lũ 
+13,0.95,0.9285714285714286,0.05,"trời đất rộng, núi non cao tự ","trời đất rộng, núi non cao tự "
+14,0.7543859649122807,0.4285714285714286,0.24561403508771928,gió sao gió mát sau lưng dạ sa,giờ sao giờ mới sưu lừng đà sa
+15,0.0,0.0,1.018181818181818,từ nay tôi đã có người đi qua ,từ nay tôi đã có người đi qua 
+2,0.946843853820598,0.8108108108108107,0.053156146179401995,mẹ lặng rồi cả tiếng con ve co,mẹ lặng rồi cả tiếng con ve co
+21,0.945,0.8409090909090909,0.055,hè sang thái hoàng tia nắng và,hè sang thái hoàng tia nắng và
+22,1.0,1.0,0.0,chữ đẹp cho người việt nam chữ,chữ đẹp cho người việt nam chữ
+23,0.9454545454545454,0.86,0.05454545454545454,thân gửi các học sinh non sông,chúc gửi các học sinh nơi sông
+24,0.8910891089108911,0.7083333333333333,0.10891089108910891,xuất sắc hơn người không phải ,ac luật sắc hơn người không ph
+25,0.9672727272727273,0.9186991869918699,0.03272727272727273,bà cụ bán hàng chè gốc bàng to,bà cụ bán hàng nước chè góc bà
+26,0.5269320843091334,0.5,0.47306791569086654,sầu riêng hòa sầu riêng trổ và,logo of the school or institut
+3,0.9601769911504425,0.851063829787234,0.03982300884955752,đất long thành rủ nhau chơi kh,đất long thành rủ nhau chơi kh
+4,0.9548872180451128,0.8666666666666667,0.045112781954887216,luyện chữ chữ đẹp nào phải hoa,luyện chữ chữ đẹp nào phải hoa
+5,0.7037037037037037,0.375,0.2962962962962963,luyện chữ ta chăm luyện tập hà,luyện chữ ta chăm luyện chữ bằ
+6,0.9473684210526316,0.8,0.05263157894736842,luyện chữ chữ đẹp nào phải hoa,luyện chữ chữ đẹp nho phai hoa
+7,0.9104477611940298,0.7,0.08955223880597014,luyện chữ chữ đẹp nào phải hoa,luyện chữ chữ đẹp nào phai hoa
+8,0.8870967741935484,0.6785714285714286,0.11290322580645161,trăm năm trăm cõi người ta chữ,trăm năm trăm cõi người ta chữ
+9,0.9344262295081968,0.7142857142857143,0.06557377049180328,cơm ăn mỗi bữa lưng lưng uống ,cóm ăn mới bữa lưng lưng uống 

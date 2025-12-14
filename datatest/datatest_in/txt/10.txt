@@ -1,0 +1,2 @@
+Bên cạnh đó, chúng tôi đã tiến hành kiểm tra chất lượng dữ liệu và phát hiện một tỷ lệ đáng kể các video được gán nhãn sai. Ví dụ, một số video được dán nhãn là Flat Shot lại có đặc trưng của Clear. Nghiêm trọng hơn, một số video không chứa bất kỳ hành động kỹ thuật cầu lông nào vẫn được phân loại vào các lớp. Điều này gây nhiễu dữ liệu, cản trở khả năng học chính xác của mô hình. 
+
