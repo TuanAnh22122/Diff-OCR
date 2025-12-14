@@ -1,21 +1,20 @@
-<div align="center">
+🔮 Diff-OCR: OCR Benchmark & Text Comparison Tool
 
-🔮 Diff-OCR
+Công cụ tự động đánh giá độ chính xác của mô hình OCR / Text Generation
 
-OCR Benchmark & Text Comparison Tool
+So sánh kết quả Prediction (.md) với dữ liệu Ground Truth (.txt) một cách chính xác và hiệu quả.
 
-<p align="center">
-<b>Công cụ tự động đánh giá độ chính xác của mô hình OCR / Text Generation</b>
+📑 Mục lục
 
+Tính năng chính
 
+Yêu cầu cài đặt
 
+Cấu trúc thư mục
 
-So sánh kết quả Prediction (<code>.md</code>) với dữ liệu Ground Truth (<code>.txt</code>) một cách chính xác và hiệu quả.
-</p>
+Hướng dẫn sử dụng
 
-Tính năng • Cài đặt • Cấu trúc • Sử dụng • Kết quả
-
-</div>
+Báo cáo kết quả
 
 🚀 Tính năng chính
 
@@ -161,14 +160,4 @@ Văn bản dự đoán (Prediction)
 
 Đã qua xử lý làm sạch
 
-<div align="center">
-
 Developed for Internal Benchmarking
-
-
-
-
-
-Made with ❤️ using Python
-
-</div>
