@@ -58,7 +58,7 @@ Tabulate: Format bảng kết quả đẹp mắt trên console.
 
 📂 Cấu trúc thư mục
 
-Để tool hoạt động chính xác, hãy tổ chức thư mục dự án theo cây dưới đây:
+Để tool hoạt động chính xác, hãy tổ chức thư mục dự án theo cấu trúc cây dưới đây:
 
 Project_Root/
 ├── 📜 compare_md_txt.py              # <--- File code chính
@@ -74,8 +74,10 @@ Project_Root/
     └── evaluation_output_dataset_tay/ # Chứa file .md model sinh ra
 
 
-⚠️ Lưu ý quan trọng:
-File kết quả và file gốc phải có cùng tên (Ví dụ: data_01.txt so khớp với data_01.md).
+[!IMPORTANT]
+Lưu ý quan trọng:
+File kết quả và file gốc phải có cùng tên để thuật toán ghép cặp hoạt động chính xác.
+Ví dụ: data_01.txt sẽ được so khớp với data_01.md.
 
 ⚙️ Hướng dẫn sử dụng
 
@@ -84,8 +86,11 @@ File kết quả và file gốc phải có cùng tên (Ví dụ: data_01.txt so 
 Mở file compare_md_txt.py và chỉnh sửa biến đường dẫn ở cuối file nếu cần:
 
 if __name__ == "__main__":
-    ROOT_DATASET = "datatest"          # Folder chứa Ground Truth
-    ROOT_EVALUATION = "evaluation_olm" # Folder chứa Prediction
+    # Tên thư mục chứa dữ liệu gốc (Ground Truth)
+    ROOT_DATASET = "datatest"
+    
+    # Tên thư mục chứa kết quả đánh giá (Prediction)
+    ROOT_EVALUATION = "evaluation_olm"
 
 
 2️⃣ Chạy đánh giá
@@ -101,8 +106,11 @@ python compare_md_txt.py
 
 tasks = {
     "DATASET_MOI": (
-        os.path.join("folder_goc", "sub_path"), # Đường dẫn file gốc
-        "folder_ket_qua"                        # Tên folder kết quả
+        # Đường dẫn tới file gốc (join path từ ROOT_DATASET)
+        os.path.join("folder_goc", "sub_path"), 
+        
+        # Tên folder kết quả (nằm trong ROOT_EVALUATION)
+        "folder_ket_qua"
     ),
 }
 
