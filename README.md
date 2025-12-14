@@ -1,30 +1,123 @@
-🔮 Diff-OCR: OCR Benchmark & Text Comparison ToolCông cụ tự động đánh giá độ chính xác của mô hình OCR / Text GenerationSo sánh kết quả Prediction (.md) với dữ liệu Ground Truth (.txt) một cách chính xác và hiệu quả.📑 Mục lụcTính năng chínhYêu cầu cài đặtCấu trúc thư mụcHướng dẫn sử dụngBáo cáo kết quả🚀 Tính năng chínhTính năngMô tả chi tiết🔄 So sánh đa định dạngHỗ trợ so sánh chéo giữa file .txt (nhãn gốc) và file .md (kết quả model).🧹 Smart PreprocessingTự động loại bỏ cú pháp Markdown (ảnh, link, header, bold...) và chuẩn hóa văn bản (lowercase, strip spaces) trước khi so sánh.📊 Metrics chuyên sâuTính toán tự động CER (Character Error Rate), WER (Word Error Rate) và Accuracy.📈 Báo cáo trực quanHiển thị bảng tóm tắt trên Terminal và xuất file .csv chi tiết cho từng cặp dữ liệu để tiện debug.📦 Yêu cầu cài đặtĐảm bảo bạn đã cài đặt Python. Cài đặt các thư viện phụ thuộc bằng lệnh sau:pip install pandas jiwer tqdm tabulate
-📚 Tech StackPandas: Xử lý dữ liệu bảng và xuất CSV.Jiwer: Thư viện lõi tính toán khoảng cách Levenshtein (CER/WER).Tqdm: Hiển thị thanh tiến trình (Progress bar).Tabulate: Format bảng kết quả đẹp mắt trên console.📂 Cấu trúc thư mụcĐể tool hoạt động chính xác, hãy tổ chức thư mục dự án theo cấu trúc cây dưới đây:Project_Root/
-├── 📜 compare_md_txt.py              # <--- File code chính
-│
-├── 🗃️ datatest/                      # (ROOT_DATASET - Chứa nhãn gốc)
+# 📊 Automatic ASR Benchmark Tool
+
+Công cụ Python dùng để **đánh giá chất lượng ASR (Automatic Speech Recognition)** bằng cách so sánh text ground-truth (`.txt`) và kết quả nhận dạng (`.md`) thông qua các chỉ số **CER** và **WER**.
+
+---
+
+## 🚀 Tính năng chính
+
+- 🔍 Tự động quét & ghép cặp dataset – output theo quy tắc đặt tên
+- 📐 Tính **Character Error Rate (CER)** và **Word Error Rate (WER)**
+- 📊 Xuất báo cáo CSV chi tiết cho từng dataset
+- 🧹 Làm sạch text nâng cao trước khi đánh giá
+- 🧩 Dễ mở rộng cho nhiều bộ dữ liệu khác nhau
+
+---
+
+## 📂 Cấu trúc thư mục
+
+```text
+project_root/
+├── datatest/
 │   ├── datatest_in/
-│   │   └── txt/                      # Chứa các file .txt chuẩn
+│   │   └── txt/            # Ground truth (.txt)
 │   └── datatest_tay/
-│       └── txt/                      # Chứa các file .txt chuẩn
+│       └── txt/
 │
-└── 🤖 evaluation_olm/                # (ROOT_EVALUATION - Chứa kết quả model)
-    ├── evaluation_output_dataset_in/ # Chứa file .md model sinh ra
-    └── evaluation_output_dataset_tay/ # Chứa file .md model sinh ra
-[!IMPORTANT] Lưu ý quan trọng: File kết quả và file gốc phải có cùng tên để thuật toán ghép cặp hoạt động chính xác. Ví dụ: data_01.txt sẽ được so khớp với data_01.md.⚙️ Hướng dẫn sử dụng1️⃣ Cấu hình đường dẫnMở file compare_md_txt.py và chỉnh sửa biến đường dẫn ở cuối file nếu cần:if __name__ == "__main__":
-    # Tên thư mục chứa dữ liệu gốc (Ground Truth)
-    ROOT_DATASET = "datatest"
-    
-    # Tên thư mục chứa kết quả đánh giá (Prediction)
-    ROOT_EVALUATION = "evaluation_olm"
-2️⃣ Chạy đánh giáChạy lệnh sau tại thư mục gốc của dự án:python compare_md_txt.py
-3️⃣ Tùy chỉnh nâng caoĐể thêm tập dữ liệu mới, sửa biến tasks trong hàm auto_benchmark:tasks = {
-    "DATASET_MOI": (
-        # Đường dẫn tới file gốc (join path từ ROOT_DATASET)
-        os.path.join("folder_goc", "sub_path"), 
-        
-        # Tên folder kết quả (nằm trong ROOT_EVALUATION)
-        "folder_ket_qua"
-    ),
+├── evaluation_chandra/
+│   ├── evaluation_output_dataset_in/   # Prediction (.md)
+│   └── evaluation_output_dataset_tay/
+│
+├── eval.py
+└── README.md
+```
+
+---
+
+## ⚙️ Cài đặt môi trường
+
+```bash
+pip install pandas jiwer tqdm tabulate
+```
+
+Khuyến nghị Python **>= 3.8**
+
+---
+
+## ▶️ Cách sử dụng
+
+### 1️⃣ Cấu hình đường dẫn
+
+Mở file `eval.py` và chỉnh 2 dòng sau:
+
+```python
+ROOT_DATASET = "datatest"
+ROOT_EVALUATION = "evaluation_chandra"
+```
+
+### 2️⃣ Chạy đánh giá
+
+```bash
+python eval.py
+```
+
+---
+
+## 📈 Kết quả đầu ra
+
+- Hiển thị **độ chính xác trung bình** trên terminal
+- Sinh file CSV:
+
+```text
+benchmark_dataset_in.csv
+benchmark_dataset_tay.csv
+```
+
+Mỗi file bao gồm:
+
+| Column | Ý nghĩa |
+|------|--------|
+| Filename | Tên file | 
+| Char_Acc | Độ chính xác ký tự | 
+| Word_Acc | Độ chính xác từ | 
+| CER | Character Error Rate | 
+| GT_Preview | Preview ground truth | 
+| Pred_Preview | Preview prediction |
+
+---
+
+## 🧠 Nguyên lý đánh giá
+
+- **CER** = số lỗi ký tự / tổng ký tự
+- **WER** = số lỗi từ / tổng từ
+
+Độ chính xác:
+
+```text
+Accuracy = 1 - Error Rate
+```
+
+---
+
+## 🛠 Mở rộng
+
+Bạn có thể thêm dataset mới trong biến `tasks`:
+
+```python
+tasks = {
+    "DATASET ABC": ("datatest_abc/txt", "evaluation_output_dataset_abc")
 }
-📊 Báo cáo kết quảSau khi chạy, tool sẽ xuất file CSV với các trường thông tin sau:Tên cộtÝ nghĩaGhi chúFilenameTên file được đánh giáChar_AccĐộ chính xác ký tự1 - CERWord_AccĐộ chính xác từ1 - WERCERCharacter Error RateCàng thấp càng tốtGT_PreviewVăn bản gốc (Ground Truth)Dùng để kiểm tra nhanhPred_PreviewVăn bản dự đoán (Prediction)Đã qua xử lý làm sạchDeveloped for Internal Benchmarking
+```
+
+---
+
+## 🧑‍💻 Tác giả
+
+- Internal ASR Evaluation Tool
+- Dành cho nghiên cứu & kiểm thử mô hình nhận dạng tiếng nói
+
+---
+
+## 📄 License
+
+MIT License (tuỳ chỉnh nếu cần)
